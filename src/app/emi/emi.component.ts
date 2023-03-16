@@ -29,7 +29,7 @@ calculate(){
   this.emi = this.p * this.r * Math.pow(1 + this.r, this.n) / (Math.pow(1 + this.r, this.n) - 1);
   this.totalinterest = this.emi * this.n - this.p;
   this.totalpayment = this.emi * this.n;
- this.intrests =(this.totalinterest/this.totalpayment)*100;
+ this.intrests =(this.totalinterest/this.totalpayment)*100
    this.generatePayments(this.emi, this.r);
       return (this.emi);
 }
