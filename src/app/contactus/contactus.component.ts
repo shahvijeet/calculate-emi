@@ -10,6 +10,7 @@ import {FormGroup,FormControl,Validators} from '@angular/forms'
   styleUrls: ['./contactus.component.css']
 })
 export class ContactusComponent  {
+  
   submitted = true;
   contactForm = new FormGroup({
 
