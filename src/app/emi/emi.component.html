@@ -1,0 +1,58 @@
+<div>
+<div class="range">
+  <form>
+    <label for="vol">Loan Amount is [p] </label>
+    <input type="text"   [value]="p" size="10"> <br>
+    <input type="range" id="vol" (change)="amountchange($event)" name="vol" min="30000" max="5000000"><br> <hr><br>
+    <label for="vol">No. of Month is[n]</label>
+    <input type="text"  [value]="n"size="6"><br>
+    <input type="range" id="vol" (change)="monthchange($event)" name="vol" min="24" max="60"><br><hr><br>
+    <label for="vol">Rate of intrest [r]</label>
+    <input type="text"  [value]="r"size="6"><br>
+    <input type="range" id="vol" (change)="ratechange($event)" name="vol" value="10" step="0.1" min="8" max="16"><br><hr><br>
+    <button type="button"  (click)="calculate()" class="btn btn-primary">Calculate</button>  
+  </form>
+  
+</div>
+
+<div class="display">
+<label for="">Monthly EMI</label>  
+<h1>{{emi | currency:"INR"}}</h1>
+<hr>
+<label for="">Total Interest</label>
+<h1>{{totalinterest | currency:"INR"}}</h1>
+<hr>
+<label for="">Total Payment</label>
+<h1>{{totalpayment | currency:"INR"}}</h1>
+<hr>
+<label for="">Intrest Percentage</label>
+<h1></h1>
+
+
+</div>
+</div>
+
+<div class="display2">
+  <table class="table table-striped" border="1">
+    <thead>
+      <tr>
+        <th scope="col">Payment No.</th>
+        <th scope="col">Begining balance</th>
+        <th scope="col">Emi</th>
+        <th scope="col">Principal</th>
+        <th scope="col">Intrest</th>
+        <th scope="col">Ending Balance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let payment of payments">
+        <td>{{payment.id}}</td>
+        <td>{{payment.beginningBalance}}</td>
+        <td>{{payment.emi}}</td>
+        <td>{{payment.principal}}</td>
+        <td>{{payment.interest}}</td>
+        <td>{{payment.endingBalance}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

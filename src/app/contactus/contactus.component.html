@@ -1,0 +1,86 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>GEt in Touch</h1>
+                </div>
+                <form [formGroup]="contactForm" (ngSubmit)="signup()">
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Full name</label>
+                        <input formControlName="fullname"
+                            [ngClass]="{'is-invalid':submitted && contactForm.controls['fullname'].errors}" type="text"
+                            class="form-control" id="exampleInputPassword1">
+                        <div *ngIf="submitted && contactForm.controls['fullname'].errors" class="text-danger">
+                            <div *ngIf="submitted && contactForm.controls['fullname'].errors['required'] ">
+                                Enter a Name
+                            </div>
+                            <div *ngIf="submitted && contactForm.controls['fullname'].errors['minlength']">
+                                Name should be greater than 4 letters
+                            </div>
+                            <div *ngIf="submitted && contactForm.controls['fullname'].errors['maxlength']">
+                                Name should be less than 10 letters
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input formControlName="email"
+                            [ngClass]="{'is-invalid':submitted && contactForm.controls['email'].errors}" type="email"
+                            class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <div *ngIf="submitted && contactForm.controls['email'].errors" class="text-danger">
+                            <div *ngIf="submitted && contactForm.controls['email'].errors['required']">
+                                Enter a email
+                            </div>
+                            <div *ngIf="submitted && contactForm.controls['email'].errors['email']">
+                                Email Is not Valid
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Query</label>
+                        <input formControlName="query"
+                            [ngClass]="{'is-invalid':submitted && contactForm.controls['query'].errors}" type="email"
+                            class="form-control" id="exampleInputquery" aria-describedby="querylHelp">
+                        <div *ngIf="submitted && contactForm.controls['query'].errors" class="text-danger">
+                            <div *ngIf="submitted && contactForm.controls['query'].errors['required']">
+                                Enter a query
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Suggestion</label>
+                        <input formControlName="suggestion"
+                            [ngClass]="{'is-invalid':submitted && contactForm.controls['suggestion'].errors}" type="email"
+                            class="form-control" id="exampleInputquery" aria-describedby="querylHelp">
+                        <div *ngIf="submitted && contactForm.controls['suggestion'].errors" class="text-danger">
+                            <div *ngIf="submitted && contactForm.controls['suggestion'].errors['required']">
+                                Enter a suggestion
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Phone</label>
+                        <input formControlName="mobile"
+                            [ngClass]="{'is-invalid':submitted && contactForm.controls['mobile'].errors}" type="number"
+                            class="form-control" id="exampleInputPassword1">
+
+                        <div *ngIf="submitted && contactForm.controls['mobile'].errors" class="text-danger">
+                            <div *ngIf="submitted && contactForm.controls['mobile'].errors['required']">
+                                Enter a mobile number
+                            </div>
+                            <div *ngIf="submitted && contactForm.controls['mobile'].errors['pattern']">
+                                mobile number Is not Valid
+                            </div>
+                        </div>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign up</button>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
